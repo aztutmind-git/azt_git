@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Exam Result</title>
+
+<link rel="stylesheet" href="css/exam.css">
+
+</head>
+
+
+<body>
+
+
+<div class="exam-container">
+
+
+<h1>
+Your Result
+</h1>
+
+
+<h2>
+
+Score:
+
+<span id="score"></span>
+
+</h2>
+
+
+
+<a href="dashboard.html">
+
+Back to Dashboard
+
+</a>
+
+
+</div>
+
+
+
+<script>
+
+document.getElementById("score").innerHTML =
+
+localStorage.getItem("score")
++
+"/3";
+
+
+</script>
+
+
+</body>
+
+</html>
