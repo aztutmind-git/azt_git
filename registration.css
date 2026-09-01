@@ -1,0 +1,190 @@
+/* =====================================
+   AZTUTMIND REGISTRATION PAGE DESIGN
+===================================== */
+
+
+.registration-section{
+
+    min-height:100vh;
+
+    padding:80px 8%;
+
+    background:
+    linear-gradient(135deg,#eff6ff,#ffffff);
+
+}
+
+
+
+.registration-container{
+
+    max-width:900px;
+
+    margin:auto;
+
+    background:white;
+
+    padding:45px;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,0.12);
+
+}
+
+
+
+.registration-container form{
+
+    display:grid;
+
+    gap:15px;
+
+}
+
+
+
+.registration-container h3{
+
+    margin-top:25px;
+
+    margin-bottom:10px;
+
+    color:#2563eb;
+
+    font-size:22px;
+
+    border-bottom:2px solid #e2e8f0;
+
+    padding-bottom:10px;
+
+}
+
+
+
+
+.registration-container label{
+
+    font-weight:500;
+
+    color:#334155;
+
+}
+
+
+
+
+.registration-container input,
+.registration-container select,
+.registration-container textarea{
+
+
+    width:100%;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    border:1px solid #cbd5e1;
+
+    font-size:15px;
+
+    font-family:'Poppins',sans-serif;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+
+
+.registration-container input:focus,
+.registration-container select:focus,
+.registration-container textarea:focus{
+
+
+    border-color:#2563eb;
+
+    box-shadow:
+    0 0 0 3px rgba(37,99,235,.15);
+
+}
+
+
+
+
+
+.registration-container textarea{
+
+    resize:none;
+
+}
+
+
+
+
+.registration-container button{
+
+    margin-top:25px;
+
+    border:none;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-family:'Poppins';
+
+}
+
+
+
+
+
+
+/* Success animation style */
+
+
+.registration-container button:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+
+
+
+
+
+/* Mobile */
+
+
+@media(max-width:768px){
+
+
+.registration-section{
+
+    padding:40px 20px;
+
+}
+
+
+
+.registration-container{
+
+    padding:25px;
+
+}
+
+
+.registration-container h3{
+
+    font-size:19px;
+
+}
+
+
+}
