@@ -1,0 +1,2606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>AztutMind | Courses</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    /* =====================================================
+       GLOBAL
+       ===================================================== */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: #f7f9fc;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    button,
+    input,
+    select {
+      font-family: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+
+    /* =====================================================
+       NAVIGATION
+       ===================================================== */
+
+    nav {
+      height: 76px;
+      background: #ffffff;
+      border-bottom: 1px solid #e9edf4;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 6%;
+
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 25px;
+      font-weight: 800;
+      color: #14213d;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #5b5ce2;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #4a5568;
+      font-weight: 600;
+      font-size: 15px;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #5b5ce2;
+    }
+
+    .cart-button {
+      border: none;
+      background: #5b5ce2;
+      color: #ffffff;
+
+      padding: 11px 18px;
+      border-radius: 10px;
+
+      font-weight: 700;
+      font-size: 14px;
+
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cart-button:hover {
+      background: #4849c9;
+    }
+
+    #cartCount {
+      background: #ffffff;
+      color: #5b5ce2;
+
+      min-width: 22px;
+      height: 22px;
+
+      border-radius: 50%;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+
+    /* =====================================================
+       HERO
+       ===================================================== */
+
+    .hero {
+      background:
+        linear-gradient(
+          135deg,
+          #eef0ff 0%,
+          #f8f9ff 55%,
+          #ffffff 100%
+        );
+
+      padding: 85px 6% 75px;
+      text-align: center;
+    }
+
+    .hero-label {
+      display: inline-block;
+
+      background: #e5e7ff;
+      color: #4b4cc9;
+
+      padding: 7px 15px;
+      border-radius: 30px;
+
+      font-size: 13px;
+      font-weight: 700;
+
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: "Plus Jakarta Sans", sans-serif;
+
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.1;
+
+      color: #172033;
+
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #5b5ce2;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+
+      color: #64748b;
+      font-size: 18px;
+    }
+
+
+    /* =====================================================
+       COURSE SECTION
+       ===================================================== */
+
+    .courses-section {
+      padding: 75px 6%;
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-heading h2 {
+      font-family: "Plus Jakarta Sans", sans-serif;
+
+      font-size: 34px;
+      color: #172033;
+
+      margin-bottom: 10px;
+    }
+
+    .section-heading p {
+      color: #718096;
+    }
+
+    .course-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 25px;
+    }
+
+
+    /* =====================================================
+       COURSE CARD
+       ===================================================== */
+
+    .course-card {
+      background: #ffffff;
+
+      border: 1px solid #e8ebf2;
+      border-radius: 18px;
+
+      padding: 30px;
+
+      display: flex;
+      flex-direction: column;
+
+      min-height: 310px;
+
+      box-shadow:
+        0 8px 30px rgba(20, 33, 61, 0.05);
+
+      transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+
+      box-shadow:
+        0 18px 45px rgba(20, 33, 61, 0.10);
+    }
+
+    .course-icon {
+      width: 55px;
+      height: 55px;
+
+      border-radius: 14px;
+
+      background: #eef0ff;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 27px;
+
+      margin-bottom: 22px;
+    }
+
+    .course-card h3 {
+      font-family: "Plus Jakarta Sans", sans-serif;
+
+      font-size: 21px;
+
+      margin-bottom: 9px;
+    }
+
+    .course-card p {
+      color: #718096;
+
+      font-size: 14px;
+
+      flex-grow: 1;
+    }
+
+    .course-bottom {
+      margin-top: 25px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 15px;
+    }
+
+    .course-price {
+      font-family: "Plus Jakarta Sans", sans-serif;
+
+      font-size: 21px;
+      font-weight: 800;
+
+      color: #172033;
+    }
+
+    .add-button {
+      border: none;
+
+      background: #5b5ce2;
+      color: white;
+
+      padding: 11px 17px;
+
+      border-radius: 9px;
+
+      font-weight: 700;
+
+      transition: 0.2s;
+    }
+
+    .add-button:hover {
+      background: #4849c9;
+    }
+
+    .add-button:disabled {
+      opacity: 0.7;
+      cursor: default;
+    }
+
+
+    /* =====================================================
+       MODAL BACKDROP
+       ===================================================== */
+
+    .modal {
+      display: none;
+
+      position: fixed;
+
+      inset: 0;
+
+      background:
+        rgba(15, 23, 42, 0.60);
+
+      z-index: 2000;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 20px;
+    }
+
+
+    /* =====================================================
+       CART MODAL
+       ===================================================== */
+
+    .modal-content {
+      background: #ffffff;
+
+      width: 100%;
+      max-width: 620px;
+
+      max-height: 90vh;
+
+      overflow-y: auto;
+
+      border-radius: 20px;
+
+      padding: 30px;
+
+      position: relative;
+
+      box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.20);
+    }
+
+    .modal-header {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      margin-bottom: 25px;
+    }
+
+    .modal-header h2 {
+      font-family: "Plus Jakarta Sans", sans-serif;
+
+      font-size: 25px;
+    }
+
+    .close-button {
+      width: 36px;
+      height: 36px;
+
+      border: none;
+
+      background: #f1f3f7;
+
+      border-radius: 50%;
+
+      font-size: 20px;
+
+      color: #555;
+
+      cursor: pointer;
+    }
+
+    .close-button:hover {
+      background: #e5e7eb;
+    }
+
+    .cart-item {
+      padding: 16px 0;
+
+      border-bottom: 1px solid #edf0f4;
+    }
+
+    .cart-summary {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      margin-top: 25px;
+
+      font-size: 20px;
+
+      font-weight: 800;
+    }
+
+    .primary-button {
+      width: 100%;
+
+      border: none;
+
+      background: #5b5ce2;
+      color: white;
+
+      padding: 14px;
+
+      border-radius: 10px;
+
+      font-size: 15px;
+
+      font-weight: 700;
+
+      margin-top: 22px;
+    }
+
+    .primary-button:hover {
+      background: #4849c9;
+    }
+
+    .primary-button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+
+    /* =====================================================
+       ENROLLMENT FORM
+       ===================================================== */
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+
+      margin-bottom: 7px;
+
+      font-size: 14px;
+
+      font-weight: 700;
+
+      color: #334155;
+    }
+
+    .required {
+      color: #e05252;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+
+      padding: 12px 13px;
+
+      border: 1px solid #dce1e9;
+
+      border-radius: 9px;
+
+      outline: none;
+
+      font-size: 14px;
+
+      background: #ffffff;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: #5b5ce2;
+
+      box-shadow:
+        0 0 0 3px rgba(91, 92, 226, 0.10);
+    }
+
+    .readonly-field {
+      background: #f5f7fa !important;
+      color: #64748b;
+    }
+
+    .device-options {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 10px;
+    }
+
+    .device-option {
+      border: 1px solid #e0e5ec;
+
+      padding: 11px;
+
+      border-radius: 9px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      cursor: pointer;
+
+      font-size: 14px;
+    }
+
+    .device-option input {
+      width: auto;
+    }
+
+
+    /* =====================================================
+       SUCCESS MODAL
+       ===================================================== */
+
+    .success-content {
+      max-width: 500px;
+      text-align: center;
+      padding: 45px 30px;
+    }
+
+    .success-icon {
+      width: 75px;
+      height: 75px;
+
+      border-radius: 50%;
+
+      background: #e7f8ef;
+
+      color: #20935c;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 38px;
+
+      margin: 0 auto 22px;
+    }
+
+    .success-content h2 {
+      font-family: "Plus Jakarta Sans", sans-serif;
+
+      font-size: 28px;
+
+      margin-bottom: 12px;
+    }
+
+    .success-content p {
+      color: #64748b;
+
+      margin-bottom: 22px;
+    }
+
+    .enrollment-id-box {
+      background: #f2f3ff;
+
+      border: 1px solid #dfe1ff;
+
+      border-radius: 12px;
+
+      padding: 17px;
+
+      margin-bottom: 18px;
+    }
+
+    .enrollment-id-label {
+      display: block;
+
+      color: #667085;
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.6px;
+
+      margin-bottom: 5px;
+    }
+
+    #generatedEnrollmentId {
+      display: block;
+
+      font-family: "Plus Jakarta Sans", sans-serif;
+
+      color: #4d4ecf;
+
+      font-size: 23px;
+
+      font-weight: 800;
+
+      letter-spacing: 1px;
+    }
+
+    .copy-button {
+      border: 1px solid #d7daf5;
+
+      background: #ffffff;
+
+      color: #4d4ecf;
+
+      padding: 10px 18px;
+
+      border-radius: 8px;
+
+      font-weight: 700;
+
+      margin-bottom: 15px;
+    }
+
+    .copy-button:hover {
+      background: #f4f4ff;
+    }
+
+    .success-note {
+      font-size: 13px;
+
+      color: #7a8494 !important;
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    footer {
+      background: #14213d;
+
+      color: #ffffff;
+
+      text-align: center;
+
+      padding: 35px 20px;
+
+      margin-top: 30px;
+    }
+
+    footer p {
+      opacity: 0.75;
+
+      font-size: 14px;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+       ===================================================== */
+
+    @media (max-width: 900px) {
+
+      .course-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+
+    }
+
+
+    @media (max-width: 650px) {
+
+      nav {
+        height: auto;
+
+        padding: 16px 5%;
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+      }
+
+      .nav-links {
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+      }
+
+      .hero {
+        padding: 60px 5%;
+      }
+
+      .courses-section {
+        padding: 55px 5%;
+      }
+
+      .course-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .device-options {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-content {
+        padding: 22px;
+
+        max-height: 94vh;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     NAVIGATION
+     ======================================================= -->
+
+<nav>
+
+  <a
+    href="index.html"
+    class="logo"
+  >
+    Aztut<span>Mind</span>
+  </a>
+
+
+  <div class="nav-links">
+
+    <a href="index.html">
+      Home
+    </a>
+
+    <a href="courses.html">
+      Courses
+    </a>
+
+    <a href="about.html">
+      About
+    </a>
+
+    <a href="contact.html">
+      Contact
+    </a>
+
+  </div>
+
+
+  <button
+    type="button"
+    class="cart-button"
+    onclick="openCart()"
+  >
+
+    🛒 Cart
+
+    <span id="cartCount">
+      0
+    </span>
+
+  </button>
+
+</nav>
+
+
+
+<!-- =======================================================
+     HERO
+     ======================================================= -->
+
+<section class="hero">
+
+  <div class="hero-label">
+    Learn • Practice • Achieve
+  </div>
+
+  <h1>
+    Explore Our
+    <span>Courses</span>
+  </h1>
+
+  <p>
+    Build strong foundations, strengthen your concepts,
+    and prepare confidently for your academic journey
+    with AztutMind.
+  </p>
+
+</section>
+
+
+
+<!-- =======================================================
+     COURSES
+     ======================================================= -->
+
+<section class="courses-section">
+
+  <div class="section-heading">
+
+    <h2>
+      Choose Your Learning Path
+    </h2>
+
+    <p>
+      Select one or more courses and proceed with enrollment.
+    </p>
+
+  </div>
+
+
+  <div class="course-grid">
+
+
+    <!-- Mathematics -->
+
+    <div class="course-card">
+
+      <div class="course-icon">
+        📐
+      </div>
+
+      <h3>
+        Mathematics
+      </h3>
+
+      <p>
+        Develop strong mathematical concepts,
+        problem-solving skills, and logical thinking.
+      </p>
+
+      <div class="course-bottom">
+
+        <div class="course-price">
+          ₹5,000
+        </div>
+
+        <button
+          type="button"
+          class="add-button"
+          onclick="addCourse('Mathematics', 5000, this)"
+        >
+          Add Course
+        </button>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- Physics -->
+
+    <div class="course-card">
+
+      <div class="course-icon">
+        ⚛️
+      </div>
+
+      <h3>
+        Physics
+      </h3>
+
+      <p>
+        Understand fundamental physics concepts
+        through structured learning and practice.
+      </p>
+
+      <div class="course-bottom">
+
+        <div class="course-price">
+          ₹5,000
+        </div>
+
+        <button
+          type="button"
+          class="add-button"
+          onclick="addCourse('Physics', 5000, this)"
+        >
+          Add Course
+        </button>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- Chemistry -->
+
+    <div class="course-card">
+
+      <div class="course-icon">
+        🧪
+      </div>
+
+      <h3>
+        Chemistry
+      </h3>
+
+      <p>
+        Master chemistry concepts with systematic
+        learning, examples, and practice.
+      </p>
+
+      <div class="course-bottom">
+
+        <div class="course-price">
+          ₹5,000
+        </div>
+
+        <button
+          type="button"
+          class="add-button"
+          onclick="addCourse('Chemistry', 5000, this)"
+        >
+          Add Course
+        </button>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- Botany -->
+
+    <div class="course-card">
+
+      <div class="course-icon">
+        🌱
+      </div>
+
+      <h3>
+        Botany
+      </h3>
+
+      <p>
+        Explore plant biology, concepts, diagrams,
+        and examination-focused learning.
+      </p>
+
+      <div class="course-bottom">
+
+        <div class="course-price">
+          ₹5,000
+        </div>
+
+        <button
+          type="button"
+          class="add-button"
+          onclick="addCourse('Botany', 5000, this)"
+        >
+          Add Course
+        </button>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- Zoology -->
+
+    <div class="course-card">
+
+      <div class="course-icon">
+        🧬
+      </div>
+
+      <h3>
+        Zoology
+      </h3>
+
+      <p>
+        Learn animal biology and human physiology
+        through structured conceptual preparation.
+      </p>
+
+      <div class="course-bottom">
+
+        <div class="course-price">
+          ₹5,000
+        </div>
+
+        <button
+          type="button"
+          class="add-button"
+          onclick="addCourse('Zoology', 5000, this)"
+        >
+          Add Course
+        </button>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- NEET -->
+
+    <div class="course-card">
+
+      <div class="course-icon">
+        🎯
+      </div>
+
+      <h3>
+        NEET Preparation
+      </h3>
+
+      <p>
+        Comprehensive NEET preparation combining
+        Physics, Chemistry, Botany, and Zoology.
+      </p>
+
+      <div class="course-bottom">
+
+        <div class="course-price">
+          ₹15,000
+        </div>
+
+        <button
+          type="button"
+          class="add-button"
+          onclick="addCourse('NEET Preparation', 15000, this)"
+        >
+          Add Course
+        </button>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     CART MODAL
+     ======================================================= -->
+
+<div
+  id="cartModal"
+  class="modal"
+>
+
+  <div class="modal-content">
+
+    <div class="modal-header">
+
+      <h2>
+        Your Cart
+      </h2>
+
+      <button
+        type="button"
+        class="close-button"
+        onclick="closeCart()"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div id="cartItems">
+    </div>
+
+
+    <div class="cart-summary">
+
+      <span>
+        Total
+      </span>
+
+      <span id="cartTotal">
+        ₹0
+      </span>
+
+    </div>
+
+
+    <button
+      type="button"
+      class="primary-button"
+      onclick="openEnrollmentForm()"
+    >
+      Continue to Enrollment
+    </button>
+
+  </div>
+
+</div>
+
+
+
+<!-- =======================================================
+     ENROLLMENT MODAL
+     ======================================================= -->
+
+<div
+  id="enrollmentModal"
+  class="modal"
+>
+
+  <div class="modal-content">
+
+    <div class="modal-header">
+
+      <h2>
+        Student Enrollment
+      </h2>
+
+      <button
+        type="button"
+        class="close-button"
+        onclick="closeEnrollmentForm()"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <form
+      id="enrollmentForm"
+      onsubmit="submitEnrollment(event)"
+    >
+
+
+      <!-- Student Name -->
+
+      <div class="form-group">
+
+        <label for="studentName">
+          Student Full Name
+          <span class="required">*</span>
+        </label>
+
+        <input
+          type="text"
+          id="studentName"
+          name="studentName"
+          placeholder="Enter student's full name"
+          required
+        >
+
+      </div>
+
+
+
+      <!-- Email -->
+
+      <div class="form-group">
+
+        <label for="email">
+          Email Address
+        </label>
+
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter email address"
+        >
+
+      </div>
+
+
+
+      <!-- Mobile -->
+
+      <div class="form-group">
+
+        <label for="mobile">
+          Mobile Number
+          <span class="required">*</span>
+        </label>
+
+        <input
+          type="tel"
+          id="mobile"
+          name="mobile"
+          placeholder="Enter mobile number"
+          required
+        >
+
+      </div>
+
+
+
+      <!-- Grade -->
+
+      <div class="form-group">
+
+        <label for="grade">
+          Grade / Class
+          <span class="required">*</span>
+        </label>
+
+        <select
+          id="grade"
+          name="grade"
+          required
+        >
+
+          <option value="">
+            Select Grade / Class
+          </option>
+
+          <option value="Grade 5">
+            Grade 5
+          </option>
+
+          <option value="Grade 6">
+            Grade 6
+          </option>
+
+          <option value="Grade 7">
+            Grade 7
+          </option>
+
+          <option value="Grade 8">
+            Grade 8
+          </option>
+
+          <option value="Grade 9">
+            Grade 9
+          </option>
+
+          <option value="Grade 10">
+            Grade 10
+          </option>
+
+          <option value="Grade 11">
+            Grade 11
+          </option>
+
+          <option value="Grade 12">
+            Grade 12
+          </option>
+
+          <option value="NEET Aspirant">
+            NEET Aspirant
+          </option>
+
+          <option value="Other">
+            Other
+          </option>
+
+        </select>
+
+      </div>
+
+
+
+      <!-- Device -->
+
+      <div class="form-group">
+
+        <label>
+          Do you have a device for online learning?
+          <span class="required">*</span>
+        </label>
+
+
+        <div class="device-options">
+
+          <label class="device-option">
+
+            <input
+              type="radio"
+              name="device"
+              value="Yes"
+              required
+            >
+
+            Yes
+
+          </label>
+
+
+          <label class="device-option">
+
+            <input
+              type="radio"
+              name="device"
+              value="No"
+            >
+
+            No
+
+          </label>
+
+
+          <label class="device-option">
+
+            <input
+              type="radio"
+              name="device"
+              value="Maybe"
+            >
+
+            Maybe
+
+          </label>
+
+
+          <label class="device-option">
+
+            <input
+              type="radio"
+              name="device"
+              value="Other"
+            >
+
+            Other
+
+          </label>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- Selected Courses -->
+
+      <div class="form-group">
+
+        <label for="selectedCourses">
+          Selected Courses
+        </label>
+
+        <input
+          type="text"
+          id="selectedCourses"
+          class="readonly-field"
+          readonly
+        >
+
+      </div>
+
+
+
+      <!-- Total Amount -->
+
+      <div class="form-group">
+
+        <label for="totalAmount">
+          Total Amount
+        </label>
+
+        <input
+          type="text"
+          id="totalAmount"
+          class="readonly-field"
+          readonly
+        >
+
+      </div>
+
+
+
+      <!-- Submit -->
+
+      <button
+        type="submit"
+        id="submitEnrollmentButton"
+        class="primary-button"
+      >
+        Submit Enrollment
+      </button>
+
+
+    </form>
+
+  </div>
+
+</div>
+
+
+
+<!-- =======================================================
+     SUCCESS / THANK YOU MODAL
+     ======================================================= -->
+
+<div
+  id="successModal"
+  class="modal"
+>
+
+  <div class="modal-content success-content">
+
+    <div class="success-icon">
+      ✓
+    </div>
+
+
+    <h2>
+      Enrollment Submitted!
+    </h2>
+
+
+    <p>
+      Thank you for enrolling with AztutMind.
+      Your enrollment has been successfully submitted.
+    </p>
+
+
+    <div class="enrollment-id-box">
+
+      <span class="enrollment-id-label">
+        Your Enrollment ID
+      </span>
+
+      <span id="generatedEnrollmentId">
+        AZT-000000
+      </span>
+
+    </div>
+
+
+    <button
+      type="button"
+      class="copy-button"
+      onclick="copyEnrollmentId()"
+    >
+      📋 Copy Enrollment ID
+    </button>
+
+
+    <p class="success-note">
+      Please keep your Enrollment ID for future reference.
+    </p>
+
+
+    <button
+      type="button"
+      class="primary-button"
+      onclick="closeSuccessModal()"
+    >
+      Done
+    </button>
+
+  </div>
+
+</div>
+
+
+
+<!-- =======================================================
+     FOOTER
+     ======================================================= -->
+
+<footer>
+
+  <p>
+    © 2026 AztutMind. All rights reserved.
+  </p>
+
+</footer>
+
+
+
+<script>
+
+/* =========================================================
+   GOOGLE APPS SCRIPT WEB APP
+   ========================================================= */
+
+const APPS_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbzfw3Z5mYWtj08rd24pZWjauwsM7uGitfp7rKNRXwn4cfBaHLkHTF5V5zAwbTQy-aIB/exec";
+
+
+/* =========================================================
+   CART
+   ========================================================= */
+
+let cart = [];
+
+
+/* =========================================================
+   ADD COURSE
+   ========================================================= */
+
+function addCourse(name, price, button) {
+
+  const existingCourse =
+    cart.find(
+      course => course.name === name
+    );
+
+
+  if (existingCourse) {
+
+    alert(
+      name +
+      " is already in your cart."
+    );
+
+    return;
+  }
+
+
+  cart.push({
+
+    name: name,
+
+    price: Number(price)
+
+  });
+
+
+  updateCartCount();
+
+  renderCart();
+
+
+  if (button) {
+
+    const originalText =
+      button.innerText;
+
+
+    button.innerText =
+      "Added ✓";
+
+
+    button.disabled =
+      true;
+
+
+    setTimeout(
+      () => {
+
+        button.innerText =
+          originalText;
+
+        button.disabled =
+          false;
+
+      },
+      1500
+    );
+  }
+}
+
+
+/* =========================================================
+   REMOVE COURSE
+   ========================================================= */
+
+function removeCourse(index) {
+
+  if (
+    index < 0 ||
+    index >= cart.length
+  ) {
+    return;
+  }
+
+
+  cart.splice(index, 1);
+
+
+  updateCartCount();
+
+  renderCart();
+}
+
+
+/* =========================================================
+   CART COUNT
+   ========================================================= */
+
+function updateCartCount() {
+
+  const cartCount =
+    document.getElementById(
+      "cartCount"
+    );
+
+
+  if (cartCount) {
+
+    cartCount.innerText =
+      cart.length;
+  }
+}
+
+
+/* =========================================================
+   CART TOTAL
+   ========================================================= */
+
+function getCartTotal() {
+
+  return cart.reduce(
+    (
+      total,
+      course
+    ) => {
+
+      return total +
+        Number(course.price);
+
+    },
+    0
+  );
+}
+
+
+/* =========================================================
+   OPEN CART
+   ========================================================= */
+
+function openCart() {
+
+  const modal =
+    document.getElementById(
+      "cartModal"
+    );
+
+
+  if (modal) {
+
+    modal.style.display =
+      "flex";
+  }
+
+
+  renderCart();
+}
+
+
+/* =========================================================
+   CLOSE CART
+   ========================================================= */
+
+function closeCart() {
+
+  const modal =
+    document.getElementById(
+      "cartModal"
+    );
+
+
+  if (modal) {
+
+    modal.style.display =
+      "none";
+  }
+}
+
+
+/* =========================================================
+   RENDER CART
+   ========================================================= */
+
+function renderCart() {
+
+  const cartItems =
+    document.getElementById(
+      "cartItems"
+    );
+
+
+  const cartTotal =
+    document.getElementById(
+      "cartTotal"
+    );
+
+
+  if (!cartItems) {
+    return;
+  }
+
+
+  if (cart.length === 0) {
+
+    cartItems.innerHTML = `
+
+      <div style="
+        text-align:center;
+        padding:30px 20px;
+        color:#667085;
+      ">
+
+        <div style="
+          font-size:42px;
+          margin-bottom:10px;
+        ">
+          🛒
+        </div>
+
+        Your cart is empty.
+
+      </div>
+
+    `;
+
+
+    if (cartTotal) {
+
+      cartTotal.innerText =
+        "₹0";
+    }
+
+
+    return;
+  }
+
+
+  cartItems.innerHTML =
+    "";
+
+
+  cart.forEach(
+    (
+      course,
+      index
+    ) => {
+
+      const item =
+        document.createElement(
+          "div"
+        );
+
+
+      item.className =
+        "cart-item";
+
+
+      item.innerHTML = `
+
+        <div style="
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+          gap:15px;
+        ">
+
+          <div>
+
+            <div style="
+              font-weight:700;
+              color:#172033;
+            ">
+              ${escapeHtml(course.name)}
+            </div>
+
+            <div style="
+              color:#667085;
+              font-size:14px;
+              margin-top:3px;
+            ">
+              ₹${Number(course.price).toLocaleString("en-IN")}
+            </div>
+
+          </div>
+
+
+          <button
+            type="button"
+            onclick="removeCourse(${index})"
+            style="
+              border:none;
+              background:none;
+              color:#d9534f;
+              font-weight:700;
+              cursor:pointer;
+            "
+          >
+            Remove
+          </button>
+
+        </div>
+
+      `;
+
+
+      cartItems.appendChild(
+        item
+      );
+    }
+  );
+
+
+  if (cartTotal) {
+
+    cartTotal.innerText =
+      "₹" +
+      getCartTotal().toLocaleString(
+        "en-IN"
+      );
+  }
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+   ========================================================= */
+
+function escapeHtml(value) {
+
+  const div =
+    document.createElement(
+      "div"
+    );
+
+
+  div.textContent =
+    value;
+
+
+  return div.innerHTML;
+}
+
+
+/* =========================================================
+   OPEN ENROLLMENT FORM
+   ========================================================= */
+
+function openEnrollmentForm() {
+
+  if (cart.length === 0) {
+
+    alert(
+      "Please add at least one course to your cart."
+    );
+
+    return;
+  }
+
+
+  closeCart();
+
+
+  const modal =
+    document.getElementById(
+      "enrollmentModal"
+    );
+
+
+  if (modal) {
+
+    modal.style.display =
+      "flex";
+  }
+
+
+  updateEnrollmentSummary();
+}
+
+
+/* =========================================================
+   CLOSE ENROLLMENT FORM
+   ========================================================= */
+
+function closeEnrollmentForm() {
+
+  const modal =
+    document.getElementById(
+      "enrollmentModal"
+    );
+
+
+  if (modal) {
+
+    modal.style.display =
+      "none";
+  }
+}
+
+
+/* =========================================================
+   UPDATE ENROLLMENT SUMMARY
+   ========================================================= */
+
+function updateEnrollmentSummary() {
+
+  const selectedCourses =
+    document.getElementById(
+      "selectedCourses"
+    );
+
+
+  const totalAmount =
+    document.getElementById(
+      "totalAmount"
+    );
+
+
+  const courses =
+    cart
+      .map(
+        course => course.name
+      )
+      .join(", ");
+
+
+  const total =
+    getCartTotal();
+
+
+  if (selectedCourses) {
+
+    selectedCourses.value =
+      courses;
+  }
+
+
+  if (totalAmount) {
+
+    totalAmount.value =
+      "₹" +
+      total.toLocaleString(
+        "en-IN"
+      );
+  }
+}
+
+
+/* =========================================================
+   SUBMIT ENROLLMENT
+   ========================================================= */
+
+async function submitEnrollment(event) {
+
+  event.preventDefault();
+
+
+  if (cart.length === 0) {
+
+    alert(
+      "Please select at least one course."
+    );
+
+    return;
+  }
+
+
+  const form =
+    document.getElementById(
+      "enrollmentForm"
+    );
+
+
+  const submitButton =
+    document.getElementById(
+      "submitEnrollmentButton"
+    );
+
+
+  const studentName =
+    document
+      .getElementById(
+        "studentName"
+      )
+      .value
+      .trim();
+
+
+  const email =
+    document
+      .getElementById(
+        "email"
+      )
+      .value
+      .trim();
+
+
+  const mobile =
+    document
+      .getElementById(
+        "mobile"
+      )
+      .value
+      .trim();
+
+
+  const grade =
+    document
+      .getElementById(
+        "grade"
+      )
+      .value
+      .trim();
+
+
+  const deviceElement =
+    document.querySelector(
+      'input[name="device"]:checked'
+    );
+
+
+  const device =
+    deviceElement
+      ? deviceElement.value
+      : "";
+
+
+  const courses =
+    cart.map(
+      course => course.name
+    );
+
+
+  const total =
+    getCartTotal();
+
+
+  /* =======================================================
+     VALIDATION
+     ======================================================= */
+
+  if (!studentName) {
+
+    alert(
+      "Please enter the student's full name."
+    );
+
+    return;
+  }
+
+
+  if (!mobile) {
+
+    alert(
+      "Please enter the mobile number."
+    );
+
+    return;
+  }
+
+
+  if (!grade) {
+
+    alert(
+      "Please select the grade/class."
+    );
+
+    return;
+  }
+
+
+  if (!device) {
+
+    alert(
+      "Please select a device option."
+    );
+
+    return;
+  }
+
+
+  /* =======================================================
+     BUTTON LOADING
+     ======================================================= */
+
+  if (submitButton) {
+
+    submitButton.disabled =
+      true;
+
+    submitButton.innerText =
+      "Submitting...";
+  }
+
+
+  /* =======================================================
+     DATA
+     
+     IMPORTANT:
+     Enrollment ID is intentionally NOT included.
+     
+     Apps Script generates it.
+     ======================================================= */
+
+  const enrollmentData = {
+
+    studentName:
+      studentName,
+
+    email:
+      email,
+
+    mobile:
+      mobile,
+
+    grade:
+      grade,
+
+    courses:
+      courses,
+
+    device:
+      device,
+
+    totalAmount:
+      total,
+
+    submittedAt:
+      new Date().toISOString()
+  };
+
+
+  try {
+
+    /* =====================================================
+       SEND TO GOOGLE APPS SCRIPT
+       ===================================================== */
+
+    const response =
+      await fetch(
+        APPS_SCRIPT_URL,
+        {
+
+          method:
+            "POST",
+
+          headers: {
+
+            "Content-Type":
+              "text/plain;charset=utf-8"
+
+          },
+
+          body:
+            JSON.stringify(
+              enrollmentData
+            )
+        }
+      );
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        "Unable to connect to the enrollment server."
+      );
+    }
+
+
+    /* =====================================================
+       READ SERVER RESPONSE
+       ===================================================== */
+
+    const result =
+      await response.json();
+
+
+    console.log(
+      "Apps Script response:",
+      result
+    );
+
+
+    /* =====================================================
+       CHECK SUCCESS
+       ===================================================== */
+
+    if (
+      !result ||
+      result.success !== true
+    ) {
+
+      throw new Error(
+        result &&
+        result.message
+          ? result.message
+          : "Enrollment submission failed."
+      );
+    }
+
+
+    /* =====================================================
+       GET SERVER-GENERATED ENROLLMENT ID
+       ===================================================== */
+
+    const enrollmentId =
+      result.enrollmentId;
+
+
+    if (!enrollmentId) {
+
+      throw new Error(
+        "Enrollment was submitted, but no Enrollment ID was returned."
+      );
+    }
+
+
+    console.log(
+      "Enrollment ID:",
+      enrollmentId
+    );
+
+
+    /* =====================================================
+       CLOSE ENROLLMENT FORM
+       ===================================================== */
+
+    const enrollmentModal =
+      document.getElementById(
+        "enrollmentModal"
+      );
+
+
+    if (enrollmentModal) {
+
+      enrollmentModal.style.display =
+        "none";
+    }
+
+
+    /* =====================================================
+       DISPLAY ENROLLMENT ID
+       ===================================================== */
+
+    const generatedEnrollmentId =
+      document.getElementById(
+        "generatedEnrollmentId"
+      );
+
+
+    if (generatedEnrollmentId) {
+
+      generatedEnrollmentId.innerText =
+        enrollmentId;
+    }
+
+
+    /* =====================================================
+       SHOW SUCCESS MODAL
+       ===================================================== */
+
+    const successModal =
+      document.getElementById(
+        "successModal"
+      );
+
+
+    if (successModal) {
+
+      successModal.style.display =
+        "flex";
+    }
+
+
+    /* =====================================================
+       CLEAR CART
+       ===================================================== */
+
+    cart = [];
+
+
+    updateCartCount();
+
+    renderCart();
+
+
+    /* =====================================================
+       RESET FORM
+       ===================================================== */
+
+    if (form) {
+
+      form.reset();
+    }
+
+
+    updateEnrollmentSummary();
+
+
+  } catch (error) {
+
+    console.error(
+      "Enrollment submission error:",
+      error
+    );
+
+
+    alert(
+      "There was a problem submitting your enrollment.\n\n" +
+      error.message +
+      "\n\nPlease try again."
+    );
+
+
+  } finally {
+
+    if (submitButton) {
+
+      submitButton.disabled =
+        false;
+
+      submitButton.innerText =
+        "Submit Enrollment";
+    }
+  }
+}
+
+
+/* =========================================================
+   COPY ENROLLMENT ID
+   ========================================================= */
+
+function copyEnrollmentId() {
+
+  const element =
+    document.getElementById(
+      "generatedEnrollmentId"
+    );
+
+
+  if (!element) {
+    return;
+  }
+
+
+  const enrollmentId =
+    element.innerText.trim();
+
+
+  if (!enrollmentId) {
+
+    alert(
+      "Enrollment ID is not available."
+    );
+
+    return;
+  }
+
+
+  if (
+    navigator.clipboard &&
+    navigator.clipboard.writeText
+  ) {
+
+    navigator.clipboard
+      .writeText(
+        enrollmentId
+      )
+      .then(
+        () => {
+
+          alert(
+            "Enrollment ID copied: " +
+            enrollmentId
+          );
+
+        }
+      )
+      .catch(
+        () => {
+
+          fallbackCopy(
+            enrollmentId
+          );
+
+        }
+      );
+
+
+  } else {
+
+    fallbackCopy(
+      enrollmentId
+    );
+  }
+}
+
+
+/* =========================================================
+   FALLBACK COPY
+   ========================================================= */
+
+function fallbackCopy(text) {
+
+  const textArea =
+    document.createElement(
+      "textarea"
+    );
+
+
+  textArea.value =
+    text;
+
+
+  textArea.style.position =
+    "fixed";
+
+  textArea.style.left =
+    "-999999px";
+
+
+  document.body.appendChild(
+    textArea
+  );
+
+
+  textArea.focus();
+
+  textArea.select();
+
+
+  try {
+
+    document.execCommand(
+      "copy"
+    );
+
+
+    alert(
+      "Enrollment ID copied: " +
+      text
+    );
+
+  } catch (error) {
+
+    alert(
+      "Please copy your Enrollment ID manually:\n\n" +
+      text
+    );
+  }
+
+
+  document.body.removeChild(
+    textArea
+  );
+}
+
+
+/* =========================================================
+   CLOSE SUCCESS MODAL
+   ========================================================= */
+
+function closeSuccessModal() {
+
+  const modal =
+    document.getElementById(
+      "successModal"
+    );
+
+
+  if (modal) {
+
+    modal.style.display =
+      "none";
+  }
+}
+
+
+/* =========================================================
+   CLICK OUTSIDE MODAL
+   ========================================================= */
+
+window.addEventListener(
+  "click",
+  function(event) {
+
+    const cartModal =
+      document.getElementById(
+        "cartModal"
+      );
+
+
+    const enrollmentModal =
+      document.getElementById(
+        "enrollmentModal"
+      );
+
+
+    const successModal =
+      document.getElementById(
+        "successModal"
+      );
+
+
+    if (
+      cartModal &&
+      event.target === cartModal
+    ) {
+
+      cartModal.style.display =
+        "none";
+    }
+
+
+    if (
+      enrollmentModal &&
+      event.target === enrollmentModal
+    ) {
+
+      enrollmentModal.style.display =
+        "none";
+    }
+
+
+    if (
+      successModal &&
+      event.target === successModal
+    ) {
+
+      successModal.style.display =
+        "none";
+    }
+
+  }
+);
+
+
+/* =========================================================
+   ESC KEY
+   ========================================================= */
+
+window.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (
+      event.key === "Escape"
+    ) {
+
+      closeCart();
+
+      closeEnrollmentForm();
+
+      closeSuccessModal();
+    }
+
+  }
+);
+
+
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function() {
+
+    updateCartCount();
+
+    renderCart();
+
+  }
+);
+
+</script>
+
+</body>
+</html>
