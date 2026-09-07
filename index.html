@@ -1,1041 +1,1753 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AztutMind | Learn Smart. Achieve More.</title>
+<title>AztutMind | Learn. Manage. Deliver.</title>
 
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/responsive.css">
+<meta name="description"
+      content="AztutMind is an intelligent digital platform for learning, project management and agile delivery.">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="stylesheet" 
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-</head>
-
-
-<body>
-
-
-<!-- ================= NAVIGATION ================= -->
-
-
-<header class="navbar">
-
-<div class="logo">
-
-<span>AZ</span>TUTMIND
-
-</div>
-
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+      rel="stylesheet">
 <nav>
 
 <ul>
 
-<li><a href="index.html">Home</a></li>
-
-<li><a href="about">About</a></li>
-
-<li><a href="courses_V1.html">Courses</a></li>
-
-<li><a href="worksheets.html">Worksheets</a></li>
-
-<li><a href="mocktests.html">Mock Tests</a></li>
-
-<li><a href="student_registration_form.html">Registration</a></li>
-
-<li><a href="contact.html">Contact</a></li>
-
-<li><a href="newsletter.html">Newsletter</a></li>
-
 </ul>
 
 </nav>
+<style>
 
+:root {
+    --primary: #4f46e5;
+    --primary-dark: #3730a3;
+    --secondary: #06b6d4;
+    --accent: #8b5cf6;
 
-<div class="nav-buttons">
+    --dark: #0f172a;
+    --dark-2: #1e293b;
 
-<a href="login.html" class="login">
-Login
+    --text: #334155;
+    --muted: #64748b;
+
+    --light: #f8fafc;
+    --white: #ffffff;
+
+    --border: #e2e8f0;
+
+    --shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+    --radius: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    color: var(--dark);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: min(1180px, 92%);
+    margin: auto;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(226,232,240,0.7);
+}
+
+.nav-inner {
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 23px;
+    font-weight: 800;
+    color: var(--dark);
+}
+
+.logo-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.nav-button {
+    padding: 11px 20px;
+    background: var(--primary);
+    color: white !important;
+    border-radius: 10px;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 105px 0 115px;
+    background:
+        radial-gradient(circle at 80% 20%, rgba(79,70,229,0.12), transparent 30%),
+        radial-gradient(circle at 15% 80%, rgba(6,182,212,0.10), transparent 30%),
+        #ffffff;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 30px;
+    background: #eef2ff;
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.badge-dot {
+    width: 7px;
+    height: 7px;
+    background: #22c55e;
+    border-radius: 50%;
+}
+
+.hero h1 {
+    font-size: clamp(44px, 5vw, 68px);
+    line-height: 1.08;
+    letter-spacing: -2.5px;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    background: linear-gradient(
+        90deg,
+        var(--primary),
+        var(--accent),
+        var(--secondary)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-text {
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 620px;
+    margin-bottom: 34px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 24px;
+    border-radius: 11px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: 0.25s;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 10px 25px rgba(79,70,229,0.25);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    background: var(--primary-dark);
+}
+
+.btn-outline {
+    border: 1px solid var(--border);
+    color: var(--dark);
+    background: white;
+}
+
+.btn-outline:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* =========================
+   PLATFORM VISUAL
+========================= */
+
+.platform-visual {
+    position: relative;
+    min-height: 470px;
+}
+
+.dashboard-card {
+    position: absolute;
+    width: 360px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+
+.main-dashboard {
+    top: 30px;
+    left: 25px;
+    z-index: 3;
+}
+
+.small-card {
+    width: 210px;
+    z-index: 4;
+}
+
+.card-one {
+    top: 0;
+    right: 0;
+}
+
+.card-two {
+    bottom: 20px;
+    right: 20px;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.dashboard-title {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.status {
+    font-size: 10px;
+    background: #dcfce7;
+    color: #15803d;
+    padding: 5px 8px;
+    border-radius: 20px;
+}
+
+.chart {
+    height: 130px;
+    display: flex;
+    align-items: end;
+    gap: 10px;
+    padding-top: 20px;
+}
+
+.bar {
+    flex: 1;
+    border-radius: 6px 6px 0 0;
+    background: linear-gradient(to top, var(--primary), #818cf8);
+}
+
+.bar:nth-child(1) { height: 35%; }
+.bar:nth-child(2) { height: 52%; }
+.bar:nth-child(3) { height: 42%; }
+.bar:nth-child(4) { height: 68%; }
+.bar:nth-child(5) { height: 55%; }
+.bar:nth-child(6) { height: 82%; }
+.bar:nth-child(7) { height: 94%; }
+
+.mini-number {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--dark);
+}
+
+.mini-label {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* =========================
+   TRUST STRIP
+========================= */
+
+.trust {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 0;
+    background: #fafafa;
+}
+
+.trust-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.trust-text {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.trust-items {
+    display: flex;
+    gap: 40px;
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+    padding: 100px 0;
+}
+
+.section-header {
+    max-width: 720px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.section-label {
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+.section-header h2 {
+    font-size: clamp(32px, 4vw, 46px);
+    line-height: 1.15;
+    margin-bottom: 18px;
+}
+
+.section-header p {
+    color: var(--muted);
+    font-size: 16px;
+}
+
+/* =========================
+   THREE VERTICALS
+========================= */
+
+.verticals {
+    background: var(--light);
+}
+
+.vertical-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.vertical-card {
+    position: relative;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 35px;
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.vertical-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow);
+}
+
+.vertical-card::after {
+    content: "";
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    right: -70px;
+    top: -70px;
+    background: rgba(79,70,229,0.07);
+}
+
+.vertical-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+    margin-bottom: 25px;
+}
+
+.edu-icon {
+    background: #eef2ff;
+}
+
+.pms-icon {
+    background: #ecfeff;
+}
+
+.agile-icon {
+    background: #f3e8ff;
+}
+
+.vertical-card h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.vertical-card p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 22px;
+}
+
+.vertical-list {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.vertical-list li {
+    font-size: 13px;
+    margin: 10px 0;
+    color: #475569;
+}
+
+.vertical-list li::before {
+    content: "✓";
+    color: var(--primary);
+    font-weight: 800;
+    margin-right: 9px;
+}
+
+.learn-more {
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+/* =========================
+   PLATFORM ARCHITECTURE
+========================= */
+
+.architecture {
+    background: white;
+}
+
+.architecture-box {
+    background: #0f172a;
+    border-radius: 28px;
+    padding: 55px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.architecture-box::before {
+    content: "";
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background: rgba(79,70,229,0.18);
+    top: -250px;
+    right: -100px;
+}
+
+.architecture-header {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 45px;
+}
+
+.architecture-header h2 {
+    color: white;
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.architecture-header p {
+    color: #94a3b8;
+}
+
+.architecture-core {
+    width: 290px;
+    margin: 0 auto 35px;
+    text-align: center;
+    padding: 22px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.06);
+    border-radius: 15px;
+}
+
+.architecture-core strong {
+    display: block;
+    font-size: 19px;
+    margin-bottom: 5px;
+}
+
+.architecture-core span {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.architecture-lines {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.arch-box {
+    text-align: center;
+    padding: 22px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.arch-box h4 {
+    color: white;
+    font-size: 15px;
+    margin-bottom: 7px;
+}
+
+.arch-box p {
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+/* =========================
+   COMMON PLATFORM SERVICES
+========================= */
+
+.services {
+    background: #f8fafc;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.service-card {
+    padding: 25px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+}
+
+.service-icon {
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.service-card h4 {
+    font-size: 15px;
+    margin-bottom: 7px;
+}
+
+.service-card p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* =========================
+   HOW IT WORKS
+========================= */
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.process {
+    position: relative;
+    text-align: center;
+}
+
+.process-number {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #eef2ff;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    font-weight: 800;
+}
+
+.process h4 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.process p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* =========================
+   AUDIENCE
+========================= */
+
+.audience {
+    background: var(--light);
+}
+
+.audience-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.audience-card {
+    background: white;
+    padding: 25px 15px;
+    border-radius: 14px;
+    text-align: center;
+    border: 1px solid var(--border);
+}
+
+.audience-card div {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.audience-card h4 {
+    font-size: 13px;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta {
+    padding: 90px 0;
+}
+
+.cta-box {
+    background:
+        linear-gradient(
+            135deg,
+            #312e81,
+            #4f46e5,
+            #0891b2
+        );
+    border-radius: 28px;
+    padding: 70px 50px;
+    text-align: center;
+    color: white;
+}
+
+.cta-box h2 {
+    color: white;
+    font-size: clamp(32px, 4vw, 48px);
+    margin-bottom: 16px;
+}
+
+.cta-box p {
+    color: rgba(255,255,255,0.8);
+    max-width: 650px;
+    margin: auto auto 30px;
+}
+
+.cta-box .btn {
+    background: white;
+    color: var(--primary);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #0f172a;
+    color: white;
+    padding: 65px 0 25px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.footer-brand p {
+    color: #94a3b8;
+    font-size: 13px;
+    max-width: 300px;
+    margin-top: 18px;
+}
+
+.footer-column h4 {
+    color: white;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.footer-column a {
+    display: block;
+    color: #94a3b8;
+    font-size: 13px;
+    margin: 10px 0;
+}
+
+.footer-column a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 22px;
+    color: #64748b;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 900px) {
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 25px;
+        flex-direction: column;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .platform-visual {
+        max-width: 600px;
+        margin: auto;
+        width: 100%;
+    }
+
+    .vertical-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .audience-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media(max-width: 600px) {
+
+    .hero {
+        padding: 75px 0;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .platform-visual {
+        min-height: 400px;
+    }
+
+    .dashboard-card {
+        width: 280px;
+    }
+
+    .main-dashboard {
+        left: 0;
+    }
+
+    .small-card {
+        width: 170px;
+    }
+
+    .trust-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .trust-items {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .architecture-box {
+        padding: 35px 20px;
+    }
+
+    .architecture-lines {
+        grid-template-columns: 1fr;
+    }
+
+    .service-grid,
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .audience-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<header class="navbar">
+
+<div class="container nav-inner">
+
+<a href="index.html" class="logo">
+    <div class="logo-mark">A</div>
+    <span>AztutMind</span>
 </a>
 
-<a href="student_registration_form.html" class="register">
-Join Now
-</a>
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<nav class="nav-links" id="navLinks">
+
+<a href="index.html">Home</a>
+
+<a href="#solutions">Solutions</a>
+
+<a href="#platform">Platform</a>
+
+<a href="#resources">Resources</a>
+
+<a href="#about">About</a>
+
+<a href="#contact">Contact</a>
+
+</nav>
 
 </div>
-
 
 </header>
 
 
-
-<!-- ================= HERO SECTION ================= -->
-
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
+<div class="container hero-grid">
 
-<div class="hero-content">
+<div>
 
+<div class="badge">
+    <span class="badge-dot"></span>
+    One Intelligent Digital Platform
+</div>
 
 <h1>
-
-Learn Smart.<br>
-
-<span>Achieve More.</span>
-
+    Learn.
+    <span>Manage.</span>
+    Deliver.
 </h1>
 
+<p class="hero-text">
 
-<p>
-
-AztutMind is a digital learning platform helping students
-master academics through interactive courses, worksheets,
-mock exams and personalized progress tracking.
+AztutMind brings learning, project management and agile delivery
+together through one intelligent digital platform designed to help
+people and organizations move from ideas to outcomes.
 
 </p>
 
+<div class="hero-actions">
 
-
-<div class="hero-buttons">
-
-<a href="student_registration_form.html" class="primary-btn">
-
-Start Learning
-
+<a href="#solutions" class="btn btn-primary">
+    Explore Platform
 </a>
 
-
-<a href="courses.html" class="secondary-btn">
-
-Explore Courses
-
+<a href="#contact" class="btn btn-outline">
+    Talk to Us
 </a>
 
+</div>
 
 </div>
 
 
-<div class="achievement">
+<!-- Dashboard visual -->
 
+<div class="platform-visual">
 
-<div>
-
-<h3>10,000+</h3>
-
-<p>Students</p>
-
-</div>
-
-
-<div>
-
-<h3>500+</h3>
-
-<p>Worksheets</p>
-
-</div>
-
-
-<div>
-
-<h3>100+</h3>
-
-<p>Mock Tests</p>
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-<div class="hero-image">
-
-
-<div class="student-card">
-
-
-<i class="fa-solid fa-graduation-cap"></i>
-
-<h3>
-
-Smart Learning
-
-</h3>
-
-
-<p>
-
-Personalized education experience
-
-</p>
-
-
-</div>
-
-
-
-<div class="circle">
-
-
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-<!-- ================= CATEGORIES ================= -->
-
-
-<section class="categories">
-
-
-<div class="section-title">
-
-
-<h2>
-
-Explore Learning Categories
-
-</h2>
-
-
-<p>
-
-Choose from our carefully designed programs
-
-</p>
-
-
-</div>
-
-
-
-
-<div class="category-container">
-
-
-<div class="category-card">
-
-<i class="fa-solid fa-calculator"></i>
-
-<h3>
-
-Mathematics
-
-</h3>
-
-<p>
-
-Grades 5 - 12
-
-</p>
-
-</div>
-
-
-
-
-<div class="category-card">
-
-<i class="fa-solid fa-flask"></i>
-
-<h3>
-
-Science
-
-</h3>
-
-<p>
-
-Physics Chemistry Biology
-
-</p>
-
-</div>
-
-
-
-
-
-<div class="category-card">
-
-<i class="fa-solid fa-dna"></i>
-
-<h3>
-
-NEET Preparation
-
-</h3>
-
-<p>
-
-Medical Entrance
-
-</p>
-
-</div>
-
-
-
-
-
-<div class="category-card">
-
-<i class="fa-solid fa-code"></i>
-
-<h3>
-
-Coding
-
-</h3>
-
-<p>
-
-Programming Skills
-
-</p>
-
-</div>
-
-
-
-
-<div class="category-card">
-
-<i class="fa-solid fa-book"></i>
-
-<h3>
-
-English
-
-</h3>
-
-<p>
-
-Communication Skills
-
-</p>
-
-</div>
-
-
-
-
-
-<div class="category-card">
-
-<i class="fa-solid fa-trophy"></i>
-
-<h3>
-
-Olympiad
-
-</h3>
-
-<p>
-
-Competitive Exams
-
-</p>
-
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-<!-- More sections will continue in Part 2 -->
-
-<script src="js/script.js"></script>
-
-</body>
-
-</html>
-<!-- ================= FEATURED COURSES ================= -->
-
-
-<section class="courses-section">
-
-
-<div class="section-title">
-
-<h2>
-Featured Courses
-</h2>
-
-<p>
-Designed for academic excellence and competitive success
-</p>
-
-</div>
-
-
-
-<div class="course-container">
-
-
-
-<div class="course-card">
-
-
-<img src="images/math.jpg" alt="Mathematics">
-
-
-<div class="course-content">
-
-<h3>
-Advanced Mathematics
-</h3>
-
-<p>
-Grade 5 - Grade 12
-</p>
-
-
-<div class="course-info">
-
-<span>
-<i class="fa-solid fa-clock"></i>
-6 Months
-</span>
-
-
-<span>
-<i class="fa-solid fa-star"></i>
-4.9
-</span>
-
-
-</div>
-
-
-<a href="#" class="course-btn">
-View Course
-</a>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="course-card">
-
-
-<img src="images/science.jpg" alt="Science">
-
-
-<div class="course-content">
-
-<h3>
-Science Mastery
-</h3>
-
-<p>
-Physics | Chemistry | Biology
-</p>
-
-
-<div class="course-info">
-
-<span>
-<i class="fa-solid fa-clock"></i>
-8 Months
-</span>
-
-
-<span>
-<i class="fa-solid fa-star"></i>
-4.8
-</span>
-
-
-</div>
-
-
-<a href="#" class="course-btn">
-View Course
-</a>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<div class="course-card">
-
-
-<img src="images/neet.jpg" alt="NEET">
-
-
-<div class="course-content">
-
-<h3>
-NEET Preparation
-</h3>
-
-<p>
-Complete Medical Entrance Program
-</p>
-
-
-<div class="course-info">
-
-<span>
-<i class="fa-solid fa-clock"></i>
-12 Months
-</span>
-
-
-<span>
-<i class="fa-solid fa-star"></i>
-5.0
-</span>
-
-
-</div>
-
-
-<a href="#" class="course-btn">
-View Course
-</a>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-<!-- ================= WHY CHOOSE AZTUTMIND ================= -->
-
-
-<section class="why-section">
-
-
-<div class="section-title">
-
-<h2>
-Why Choose AztutMind?
-</h2>
-
-<p>
-Everything students need for successful learning
-</p>
-
-
-</div>
-
-
-
-<div class="feature-container">
-
-
-
-<div class="feature-card">
-
-
-<i class="fa-solid fa-video"></i>
-
-<h3>
-Interactive Lessons
-</h3>
-
-<p>
-Engaging lessons with simple explanations and examples.
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="feature-card">
-
-
-<i class="fa-solid fa-file-circle-check"></i>
-
-<h3>
-Practice Tests
-</h3>
-
-<p>
-Exam-style questions with instant performance analysis.
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="feature-card">
-
-
-<i class="fa-solid fa-chart-line"></i>
-
-<h3>
-Progress Tracking
-</h3>
-
-<p>
-Monitor improvement through detailed reports.
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="feature-card">
-
-
-<i class="fa-solid fa-user-graduate"></i>
-
-<h3>
-Expert Guidance
-</h3>
-
-<p>
-Learn from experienced educators.
-</p>
-
-
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<!-- ================= STUDENT DASHBOARD PREVIEW ================= -->
-
-
-<section class="dashboard-preview">
-
-
-
-<div class="dashboard-text">
-
-
-<h2>
-Your Learning Dashboard
-</h2>
-
-
-<p>
-
-Track courses, tests, scores and learning progress
-from one simple dashboard.
-
-</p>
-
-
-
-<ul>
-
-<li>
-✔ Upcoming Exams
-</li>
-
-<li>
-✔ Performance Reports
-</li>
-
-<li>
-✔ Certificates
-</li>
-
-<li>
-✔ Personalized Study Plan
-</li>
-
-</ul>
-
-
-<a href="registration.html" class="primary-btn">
-
-Create Student Account
-
-</a>
-
-
-</div>
-
-
-
-
-
-<div class="dashboard-box">
-
+<div class="dashboard-card main-dashboard">
 
 <div class="dashboard-header">
 
-Welcome Student
+<div class="dashboard-title">
+    AztutMind Platform
+</div>
+
+<div class="status">
+    Live
+</div>
+
+</div>
+
+<div style="font-size:12px;color:#64748b;">
+    Platform Activity
+</div>
+
+<div class="chart">
+
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+
+</div>
+
+<div style="
+display:flex;
+justify-content:space-between;
+margin-top:15px;
+font-size:11px;
+color:#64748b;
+">
+
+<span>Learning</span>
+<span>Projects</span>
+<span>Agile</span>
+
+</div>
 
 </div>
 
 
-<div class="progress-card">
+<div class="dashboard-card small-card card-one">
 
+<div class="mini-number">94%</div>
 
-<h4>
-Mathematics
-</h4>
-
-
-<div class="progress">
-
-<div class="progress-value">
-
-85%
+<div class="mini-label">
+    Learning Progress
+</div>
 
 </div>
 
 
+<div class="dashboard-card small-card card-two">
+
+<div class="mini-number">24</div>
+
+<div class="mini-label">
+    Active Projects
 </div>
-
-
-</div>
-
-
-
-
-
-<div class="score-box">
-
-<h3>
-Latest Test Score
-</h3>
-
-
-<h1>
-92%
-</h1>
-
 
 </div>
 
-
 </div>
 
+</div>
 
 </section>
 
 
+<!-- =========================
+     TRUST
+========================= -->
 
+<section class="trust">
 
+<div class="container trust-content">
 
+<div class="trust-text">
+    Built for people, teams & organizations
+</div>
 
+<div class="trust-items">
 
-
-<!-- ================= TESTIMONIALS ================= -->
-
-
-<section class="testimonial-section">
-
-
-<div class="section-title">
-
-
-<h2>
-Student Success Stories
-</h2>
-
+<span>EDUCATION</span>
+<span>PROJECTS</span>
+<span>AGILE</span>
+<span>DATA</span>
+<span>ANALYTICS</span>
 
 </div>
 
-
-
-
-<div class="testimonial-container">
-
-
-
-<div class="testimonial-card">
-
-
-<p>
-
-"AztutMind helped me improve my mathematics skills
-through regular worksheets and practice tests."
-
-</p>
-
-
-<h4>
-- Student
-</h4>
-
-
 </div>
-
-
-
-
-<div class="testimonial-card">
-
-
-<p>
-
-"The mock exams helped me prepare confidently
-for competitive examinations."
-
-</p>
-
-
-<h4>
-- Parent
-</h4>
-
-
-</div>
-
-
-
-
-<div class="testimonial-card">
-
-
-<p>
-
-"The progress reports helped us understand
-our child's learning journey."
-
-</p>
-
-
-<h4>
-- Parent
-</h4>
-
-
-</div>
-
-
-
-</div>
-
 
 </section>
 
 
+<!-- =========================
+     THREE VERTICALS
+========================= -->
 
+<section class="section verticals" id="solutions">
 
+<div class="container">
 
+<div class="section-header">
 
-
-<!-- ================= REGISTRATION CTA ================= -->
-
-
-<section class="cta-section">
-
+<div class="section-label">
+    Our Solutions
+</div>
 
 <h2>
-
-Start Your Learning Journey Today
-
+    One Platform.
+    Three Powerful Verticals.
 </h2>
 
-
 <p>
-
-Register with AztutMind and unlock smart digital learning.
-
+    AztutMind connects learning, planning and delivery into a
+    unified digital experience.
 </p>
 
+</div>
 
-<a href="registration.html" class="primary-btn">
 
-Register Now
+<div class="vertical-grid">
 
+
+<!-- EDU TECH -->
+
+<div class="vertical-card">
+
+<div class="vertical-icon edu-icon">
+    🎓
+</div>
+
+<h3>EduTech</h3>
+
+<p>
+Empowering students and educators with structured learning,
+practice, assessments and progress insights.
+</p>
+
+<ul class="vertical-list">
+
+<li>Courses & Learning</li>
+<li>Worksheets & Practice</li>
+<li>Mock Tests & Assessments</li>
+<li>Student Progress</li>
+<li>Learning Analytics</li>
+
+</ul>
+
+<a href="courses.html" class="learn-more">
+    Explore EduTech →
 </a>
 
+</div>
+
+
+<!-- PMS -->
+
+<div class="vertical-card">
+
+<div class="vertical-icon pms-icon">
+    📊
+</div>
+
+<h3>Project Management</h3>
+
+<p>
+Helping organizations plan, coordinate and monitor projects
+from initiation through successful delivery.
+</p>
+
+<ul class="vertical-list">
+
+<li>Project Planning</li>
+<li>Tasks & Milestones</li>
+<li>Resource Management</li>
+<li>Risk & Issue Tracking</li>
+<li>Project Dashboards</li>
+
+</ul>
+
+<a href="pms.html" class="learn-more">
+    Explore PMS →
+</a>
+
+</div>
+
+
+<!-- AGILE -->
+
+<div class="vertical-card">
+
+<div class="vertical-icon agile-icon">
+    ⚡
+</div>
+
+<h3>Agile Tracking</h3>
+
+<p>
+Giving agile teams visibility into backlogs, sprints, delivery,
+velocity and continuous improvement.
+</p>
+
+<ul class="vertical-list">
+
+<li>Product Backlog</li>
+<li>Sprint Planning</li>
+<li>Kanban Boards</li>
+<li>Velocity Tracking</li>
+<li>Agile Metrics</li>
+
+</ul>
+
+<a href="agile.html" class="learn-more">
+    Explore Agile →
+</a>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
+<!-- =========================
+     PLATFORM
+========================= -->
+
+<section class="section architecture" id="platform">
+
+<div class="container">
+
+<div class="architecture-box">
+
+<div class="architecture-header">
+
+<div class="section-label" style="color:#818cf8;">
+    AztutMind Platform
+</div>
+
+<h2>
+    One Core. Multiple Experiences.
+</h2>
+
+<p>
+    Each vertical operates independently while sharing common
+    platform capabilities.
+</p>
+
+</div>
 
 
+<div class="architecture-core">
+
+<strong>
+    AztutMind Common Platform
+</strong>
+
+<span>
+    Identity • Users • Roles • Notifications • Audit • Analytics
+</span>
+
+</div>
 
 
+<div class="architecture-lines">
 
-<!-- ================= FOOTER ================= -->
+<div class="arch-box">
 
+<h4>🎓 EduTech</h4>
+
+<p>
+Students • Teachers • Courses • Assessments
+</p>
+
+</div>
+
+
+<div class="arch-box">
+
+<h4>📊 Project Management</h4>
+
+<p>
+Projects • Tasks • Resources • Milestones
+</p>
+
+</div>
+
+
+<div class="arch-box">
+
+<h4>⚡ Agile Tracking</h4>
+
+<p>
+Backlogs • Sprints • Boards • Metrics
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     COMMON SERVICES
+========================= -->
+
+<section class="section services">
+
+<div class="container">
+
+<div class="section-header">
+
+<div class="section-label">
+    Platform Foundation
+</div>
+
+<h2>
+    Shared Intelligence Across the Platform
+</h2>
+
+<p>
+    Common services allow every AztutMind solution to work
+    together while maintaining its own specialized experience.
+</p>
+
+</div>
+
+
+<div class="service-grid">
+
+
+<div class="service-card">
+
+<div class="service-icon">🔐</div>
+
+<h4>Identity & Access</h4>
+
+<p>
+Secure authentication, roles and permissions.
+</p>
+
+</div>
+
+
+<div class="service-card">
+
+<div class="service-icon">👥</div>
+
+<h4>User Management</h4>
+
+<p>
+Manage students, teachers, teams and organizations.
+</p>
+
+</div>
+
+
+<div class="service-card">
+
+<div class="service-icon">🔔</div>
+
+<h4>Notifications</h4>
+
+<p>
+Keep users informed about important events.
+</p>
+
+</div>
+
+
+<div class="service-card">
+
+<div class="service-icon">📋</div>
+
+<h4>Audit & Governance</h4>
+
+<p>
+Track platform activity and maintain accountability.
+</p>
+
+</div>
+
+
+<div class="service-card">
+
+<div class="service-icon">📈</div>
+
+<h4>Analytics</h4>
+
+<p>
+Turn platform data into meaningful insights.
+</p>
+
+</div>
+
+
+<div class="service-card">
+
+<div class="service-icon">🗄️</div>
+
+<h4>Data Platform</h4>
+
+<p>
+Centralized and structured data for applications.
+</p>
+
+</div>
+
+
+<div class="service-card">
+
+<div class="service-icon">🔗</div>
+
+<h4>Integrations</h4>
+
+<p>
+Connect external systems and business applications.
+</p>
+
+</div>
+
+
+<div class="service-card">
+
+<div class="service-icon">⚙️</div>
+
+<h4>Automation</h4>
+
+<p>
+Reduce manual effort through intelligent workflows.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     HOW IT WORKS
+========================= -->
+
+<section class="section" id="resources">
+
+<div class="container">
+
+<div class="section-header">
+
+<div class="section-label">
+    How AztutMind Works
+</div>
+
+<h2>
+    From Learning to Delivery
+</h2>
+
+<p>
+    AztutMind provides a structured digital environment
+    for continuous learning, planning and execution.
+</p>
+
+</div>
+
+
+<div class="process-grid">
+
+
+<div class="process">
+
+<div class="process-number">01</div>
+
+<h4>Learn</h4>
+
+<p>
+Build knowledge and skills through structured learning.
+</p>
+
+</div>
+
+
+<div class="process">
+
+<div class="process-number">02</div>
+
+<h4>Plan</h4>
+
+<p>
+Convert objectives into projects, tasks and milestones.
+</p>
+
+</div>
+
+
+<div class="process">
+
+<div class="process-number">03</div>
+
+<h4>Execute</h4>
+
+<p>
+Manage work through agile and project management practices.
+</p>
+
+</div>
+
+
+<div class="process">
+
+<div class="process-number">04</div>
+
+<h4>Measure</h4>
+
+<p>
+Use analytics and insights to continuously improve outcomes.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     USERS
+========================= -->
+
+<section class="section audience" id="about">
+
+<div class="container">
+
+<div class="section-header">
+
+<div class="section-label">
+    Designed For
+</div>
+
+<h2>
+    One Platform. Many Users.
+</h2>
+
+<p>
+    Different users get different experiences while operating
+    on the same trusted platform.
+</p>
+
+</div>
+
+
+<div class="audience-grid">
+
+<div class="audience-card">
+<div>🎓</div>
+<h4>Students</h4>
+</div>
+
+<div class="audience-card">
+<div>👩‍🏫</div>
+<h4>Teachers</h4>
+</div>
+
+<div class="audience-card">
+<div>📋</div>
+<h4>Project Managers</h4>
+</div>
+
+<div class="audience-card">
+<div>⚡</div>
+<h4>Scrum Masters</h4>
+</div>
+
+<div class="audience-card">
+<div>📊</div>
+<h4>Management</h4>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta" id="contact">
+
+<div class="container">
+
+<div class="cta-box">
+
+<h2>
+    Build. Learn. Deliver. Smarter.
+</h2>
+
+<p>
+    Discover how AztutMind can bring learning, project management
+    and agile delivery together on one intelligent platform.
+</p>
+
+<a href="mailto:info@aztutmind.com" class="btn">
+    Get Started
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
+<div class="container">
 
-<div class="footer-container">
-
-
-
-<div>
+<div class="footer-grid">
 
 
-<h3>
-AZTUTMIND
-</h3>
+<div class="footer-brand">
 
+<div class="logo" style="color:white;">
+
+<div class="logo-mark">A</div>
+
+AztutMind
+
+</div>
 
 <p>
-
-Learn Smart. Achieve More.
-
+    An intelligent digital platform connecting learning,
+    project management and agile delivery.
 </p>
-
 
 </div>
 
 
+<div class="footer-column">
 
+<h4>Solutions</h4>
 
-
-<div>
-
-
-<h4>
-Quick Links
-</h4>
-
-
-<p>
-Courses
-</p>
-
-<p>
-Worksheets
-</p>
-
-<p>
-Mock Tests
-</p>
-
+<a href="courses.html">EduTech</a>
+<a href="pms.html">Project Management</a>
+<a href="agile.html">Agile Tracking</a>
 
 </div>
 
 
+<div class="footer-column">
 
+<h4>Platform</h4>
 
-
-<div>
-
-
-<h4>
-Support
-</h4>
-
-
-<p>
-Contact Us
-</p>
-
-
-<p>
-Privacy Policy
-</p>
-
-
-<p>
-Terms & Conditions
-</p>
-
+<a href="#platform">Architecture</a>
+<a href="#resources">Resources</a>
+<a href="#about">About</a>
 
 </div>
 
 
+<div class="footer-column">
 
+<h4>Connect</h4>
 
+<a href="#contact">Contact</a>
+<a href="mailto:info@aztutmind.com">Email Us</a>
 
-<div>
-
-
-<h4>
-Connect
-</h4>
-
-
-<p>
-
-<i class="fa-brands fa-facebook"></i>
-
-<i class="fa-brands fa-instagram"></i>
-
-<i class="fa-brands fa-linkedin"></i>
-
-
-</p>
-
+</div>
 
 </div>
 
 
+<div class="footer-bottom">
+
+<span>
+© 2026 AztutMind. All rights reserved.
+</span>
+
+<span>
+Learn. Manage. Deliver.
+</span>
 
 </div>
 
-
-
-<div class="copyright">
-
-
-© 2026 AztutMind. All Rights Reserved.
-
 </div>
-
 
 </footer>
+
+
+<script>
+
+function toggleMenu() {
+
+    const menu = document.getElementById("navLinks");
+
+    menu.classList.toggle("active");
+
+}
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        document.getElementById("navLinks")
+            .classList.remove("active");
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
